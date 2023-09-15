@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'providers.dart';
 
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();
@@ -29,5 +31,10 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   // Add cross-flavor configuration here
 
-  runApp(await builder());
+  runApp(
+    MultiBlocProvider(
+      providers: providers,
+      child: await builder(),
+    ),
+  );
 }

@@ -1,7 +1,8 @@
 import 'package:fire_dash/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/utils/is_firebase_cli_installed.dart';
+import '../../shared/theme/colors.dart';
+import 'tools.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -10,25 +11,16 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        appBarTheme: const AppBarTheme(color: Color(0xFF13B9FF)),
+        appBarTheme: const AppBarTheme(
+          color: FDColors.dark,
+        ),
         colorScheme: ColorScheme.fromSwatch(
-          accentColor: const Color(0xFF13B9FF),
+          accentColor: FDColors.darkAccent,
         ),
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: Container(
-        child: Center(
-          child: MaterialButton(
-            color: Colors.blue,
-            onPressed: () async {
-              bool firebaseInstalled = await isFirebaseCliInstalled();
-              print(firebaseInstalled);
-            },
-            child: const Text('Test'),
-          ),
-        ),
-      ),
+      home: const FireDashToolsPage(),
     );
   }
 }
