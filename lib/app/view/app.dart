@@ -1,6 +1,8 @@
 import 'package:fire_dash/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
+import '../../core/utils/is_firebase_cli_installed.dart';
+
 class App extends StatelessWidget {
   const App({super.key});
 
@@ -15,7 +17,18 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const Placeholder(),
+      home: Container(
+        child: Center(
+          child: MaterialButton(
+            color: Colors.blue,
+            onPressed: () async {
+              bool firebaseInstalled = await isFirebaseCliInstalled();
+              print(firebaseInstalled);
+            },
+            child: const Text('Test'),
+          ),
+        ),
+      ),
     );
   }
 }
