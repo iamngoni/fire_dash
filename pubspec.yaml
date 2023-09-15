@@ -14,6 +14,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.18.0
+  process_run: ^0.13.1
 
 dev_dependencies:
   bloc_test: ^9.1.2
