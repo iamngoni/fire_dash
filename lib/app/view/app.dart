@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:fire_dash/counter/counter.dart';
 import 'package:fire_dash/l10n/l10n.dart';
+import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -16,7 +15,7 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
+      home: const Placeholder(),
     );
   }
 }
