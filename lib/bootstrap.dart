@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 import 'providers.dart';
 
@@ -31,10 +32,18 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   // Add cross-flavor configuration here
 
-  runApp(
-    MultiBlocProvider(
-      providers: providers,
-      child: await builder(),
+  await SentryFlutter.init(
+    (options) {
+      options
+        ..dsn =
+            'https://19c850dca000adc6fce73afc12525414@o1107818.ingest.sentry.io/4505903526379520'
+        ..tracesSampleRate = 1.0;
+    },
+    appRunner: () async => runApp(
+      MultiBlocProvider(
+        providers: providers,
+        child: await builder(),
+      ),
     ),
   );
 }

@@ -14,14 +14,21 @@ dependencies:
   flutter_bloc: ^8.1.3
   flutter_localizations:
     sdk: flutter
+  freezed_annotation:
+  handy_extensions:
   intl: ^0.18.0
+  json_annotation:
   process_run: ^0.13.1
   relative_scale:
+  sentry_flutter:
 
 dev_dependencies:
   bloc_test: ^9.1.2
+  build_runner:
   flutter_test:
     sdk: flutter
+  freezed:
+  json_serializable:
   mocktail: ^0.3.0
   very_good_analysis: ^5.0.0
 

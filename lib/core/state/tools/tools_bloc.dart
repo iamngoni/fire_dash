@@ -5,7 +5,6 @@ import 'package:equatable/equatable.dart';
 
 import '../../../shared/models/data/fire_dash_exception.dart';
 import '../../utils/is_firebase_cli_installed.dart';
-import '../../utils/is_firebase_logged_in.dart';
 
 part 'tools_event.dart';
 part 'tools_state.dart';
@@ -21,7 +20,9 @@ class ToolsBloc extends Bloc<ToolsEvent, ToolsState> {
             ToolsInstalled(isFirebaseCliInstalled: isFirebaseCliInstalledOnPC),
           );
         } else {
-          final bool isFirebaseCliLoggedInOnPC = await isFirebaseCliLoggedIn();
+          // TODO(iamngoni): Uncomment this when we have a way to check if the user is logged in
+          // final bool isFirebaseCliLoggedInOnPC = await isFirebaseCliLoggedIn();
+          const bool isFirebaseCliLoggedInOnPC = true;
           emit(
             ToolsInstalled(
               isFirebaseCliInstalled: isFirebaseCliInstalledOnPC,
